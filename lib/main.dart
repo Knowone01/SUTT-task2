@@ -1,11 +1,22 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart'as http;
-import 'package:movies/screen1.dart';
 import 'package:movies/splashscreen.dart';
+import 'package:movies/model.dart';
+import 'package:provider/provider.dart';
+import 'package:movies/screen1.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(providers:[
+    ChangeNotifierProvider(create: (context) => datamodel(),),
+    ChangeNotifierProvider(create: (context) => datamodel1())
+        ],
+        child: MyApp(),
+
+    ),
+
+
+  );
+
 }
 
 class MyApp extends StatelessWidget {

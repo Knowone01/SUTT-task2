@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 import 'dart:convert';
+import 'package:movies/screen2.dart';
 
-import 'package:http/http.dart';
-import 'package:movies/api/api.dart';
+int movieindex = 0;
+List<dynamic> listResponse = [];
+class datamodel1 extends ChangeNotifier{
+  List<dynamic>sharelistResponse = listResponse;
+  List<dynamic> get _sharelistResponse => listResponse;
 
-import 'models/movie.dart';
+  String getname(int index){
+    return listResponse[index]['original_title'];
+  }
+  String getimage(int index){
+    return listResponse[index]['poster_path'];
+  }
+  String getreleasedate(int index){
+    return listResponse[index]['release_date'];
+  }
+  String getdescription(int index){
+    return listResponse[index]['overview'];
+  }
+ double getAudienceRATING (int index){
+    return listResponse[index]['vote_average'];
+  }
+  bool isadult(int index){
+    return listResponse[index]['adult'];
+  }
+
+}
 
 class screen1 extends StatefulWidget {
   const screen1({super.key});
@@ -18,7 +41,7 @@ class screen1 extends StatefulWidget {
 
 class _screen1State extends State<screen1> {
 
-  List<dynamic> listResponse = [];
+
     Future apicall() async {
       http.Response response;
       response = await http.get(Uri.parse('https://api.themoviedb.org/3/movie/now_playing?api_key=67ffcd988a3d098f1ec819e7bc14af78'));
@@ -34,6 +57,7 @@ class _screen1State extends State<screen1> {
       apicall();
       super.initState();
     }
+
 
   var moviename = TextEditingController();
   @override
@@ -85,15 +109,24 @@ class _screen1State extends State<screen1> {
           ),
           Expanded(
             child: ListView.builder(itemBuilder: (context, index){
+
               return Padding(
-                padding: const EdgeInsets.only(left:50.0),
+                padding: const EdgeInsets.only(left:31),
                 child: Container(
+
                   height: 500,
                   width: 500,
                   child: Row(
                     children: [
+                      GestureDetector(
+                          onTap : (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Screen2()),);
+                            movieindex = index;
+                            },
 
-                      Image.network('https://image.tmdb.org/t/p/w500'+ listResponse[index]['poster_path'])
+                          child: Image.network('https://image.tmdb.org/t/p/w500'+ listResponse[index]['poster_path']))
                     ],
                   ),
                 ),
