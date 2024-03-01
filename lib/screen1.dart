@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart'as http;
 import 'dart:convert';
 import 'package:movies/screen2.dart';
+import 'package:movies/screen2_.dart';
 
 int movieindex = 0;
 List<dynamic> listResponse = [];
@@ -122,7 +123,7 @@ class _screen1State extends State<screen1> {
                           onTap : (){
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Screen2()),);
+                                MaterialPageRoute(builder: (context) => screen2_()),);
                             movieindex = index;
                             },
 

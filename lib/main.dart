@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/screen2_.dart';
 import 'package:movies/splashscreen.dart';
 import 'package:movies/model.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +9,8 @@ void main() {
   runApp(
     MultiProvider(providers:[
     ChangeNotifierProvider(create: (context) => datamodel(),),
-    ChangeNotifierProvider(create: (context) => datamodel1())
+    ChangeNotifierProvider(create: (context) => datamodel1()),
+    ChangeNotifierProvider(create: (context) => MovieData())
         ],
         child: MyApp(),
 
