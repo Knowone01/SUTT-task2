@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "802178706935",
+    "project_id": "sutt-task3-6bd21",
+    "storage_bucket": "sutt-task3-6bd21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802178706935:android:e0d01d8e2ebad8fbf6d2f2",
+        "android_client_info": {
+          "package_name": "com.example.movies"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRhvaKdpnugcBw8-I4m7nZm4tS0YjcbfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

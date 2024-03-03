@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:movies/screen1.dart';
+import 'package:movies/sign_in.dart';
 
 
 class SplashScreen extends StatefulWidget {
